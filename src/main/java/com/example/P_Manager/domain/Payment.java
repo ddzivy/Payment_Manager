@@ -17,12 +17,13 @@ public class Payment {
 	private String IBAN;
 	private String amount;
 	private String date;
-	private String check;
 	
 	// type is from entity Type and is one of the payment attribute, it is joined here
 	@ManyToOne
 	@JoinColumn(name = "typeid")
 	private Type type;
+	
+	private String check;
 	
 	// Creating empty Payment object
 	public Payment() {}
