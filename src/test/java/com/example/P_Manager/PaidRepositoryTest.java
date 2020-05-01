@@ -23,7 +23,7 @@ public class PaidRepositoryTest {
     //Test create new paid
     @Test
     public void createNewPaid() {
-    	Paid paid = new Paid("National Bank", "PM0000555777", "1527€", "2020-08-17", new Type("Penalty"));
+    	Paid paid = new Paid("National Bank", "PM0000555777", "1527€", "2020-08-17", "Penalty");
     	prrepository.save(paid);
     	assertThat(paid.getId()).isNotNull();
     }    

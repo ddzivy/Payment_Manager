@@ -17,6 +17,7 @@ public class Payment {
 	private String IBAN;
 	private String amount;
 	private String date;
+	private String check;
 	
 	// type is from entity Type and is one of the payment attribute, it is joined here
 	@ManyToOne
@@ -27,13 +28,14 @@ public class Payment {
 	public Payment() {}
     
 	// Creating Payment object with attributes
-	public Payment(String name, String IBAN, String amount, String date, Type type) {
+	public Payment(String name, String IBAN, String amount, String date, Type type, String check) {
 		super();
 		this.name = name;
 		this.IBAN = IBAN;
 		this.amount = amount;
 		this.date = date;
 		this.type = type;
+		this.check = check;
 	}
 
 // Getters and setters for all attributes
@@ -74,13 +76,19 @@ public class Payment {
 	public void setType(Type type) {
 		this.type = type;
 	}
+	public String getCheck() {
+		return check;
+	}
+	public void setCheck(String check) {
+		this.check = check;
+	}
 	
 	// Overriding method toString()
 	@Override
 	public String toString() {
 		if (this.type != null)
-			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + " type =" + this.getType() + "]";		
+			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + " type =" + this.getType() + ", check=" + check + "]";		
 		else
-			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + "]";
+			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + ", check=" + check + "]";
 	}
 }

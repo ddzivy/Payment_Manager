@@ -30,7 +30,7 @@ public class PaymentRepositoryTest {
     //Test create new payment
     @Test
     public void createNewPayment() {
-    	Payment payment = new Payment("Central Bank", "PM0206597013", "10000€", "2020-12-31", new Type("Penalty"));
+    	Payment payment = new Payment("Central Bank", "PM0206597013", "10000€", "2020-12-31", new Type("Penalty"), "No");
     	prepository.save(payment);
     	assertThat(payment.getId()).isNotNull();
     }    

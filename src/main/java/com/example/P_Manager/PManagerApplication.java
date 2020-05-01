@@ -31,12 +31,12 @@ public class PManagerApplication {
 			// Creating and saving new payment types
 			trepository.save(new Type("Product"));
 			trepository.save(new Type("Service"));
-			trepository.save(new Type("Refund"));
+			trepository.save(new Type("Refund")); 
 			
 			// Creating and saving new payments
-			prepository.save(new Payment("Table.oy", "PM0009874321", "245€", "2020-06-01",trepository.findByName("Product").get(0)));
-			prepository.save(new Payment("Peter Smith", "PM0005879454", "2500€", "2020-05-27", trepository.findByName("Service").get(0)));
-			prepository.save(new Payment("Mary West", "PM0045200148", "750€", "2020-05-10", trepository.findByName("Refund").get(0)));	
+			prepository.save(new Payment("Table.oy", "PM0009874321", "245€", "2020-06-01", trepository.findByName("Product").get(0), "No"));
+			prepository.save(new Payment("Peter Smith", "PM0005879454", "2500€", "2020-05-27", trepository.findByName("Service").get(0), "No"));
+			prepository.save(new Payment("Mary West", "PM0045200148", "750€", "2020-05-10", trepository.findByName("Refund").get(0), "No"));	
 			
 			// Creating and saving new persons (user/password): secretary/secretary manager/manager boss/boss
 			Person user1 = new Person("secretary", "$2a$10$CG7xagtTGnmbd85JWF1IZeLRAGnbUJ1M9TNX2SyRQkzjkrh1wI1RG", "secretary@pm.oy", "USER");

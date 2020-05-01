@@ -27,6 +27,10 @@
        			<option th:each="type: ${types}" th:value="${type.typeid}" th:text="${type.name}"></option>
     		</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="check">Paid: </label>
+        		<input type="checkbox" th:field="*{check}" value="Yes" />Yes
+        		<input type="checkbox" th:field="*{check}" value="No" />No
+			<div style="clear: both; display: block; height: 10px;"></div>
 			<input type="submit" value="Save" class="btn btn-success"></input>			
 		</form>
 	</div>

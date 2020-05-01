@@ -17,8 +17,6 @@ import com.example.P_Manager.domain.Person;
 import com.example.P_Manager.domain.PersonRepository;
 import com.example.P_Manager.domain.Type;
 import com.example.P_Manager.domain.TypeRepository;
-import com.example.P_Manager.domain.Paid;
-import com.example.P_Manager.domain.PaidRepository;
 
 @Controller
 public class PaymentController {
@@ -30,9 +28,6 @@ public class PaymentController {
 	
 	@Autowired
 	private PersonRepository urepository; 
-	
-	@Autowired
-	private PaidRepository prrepository; 
 	
 	// Login page
     @RequestMapping(value="/login")
@@ -77,12 +72,10 @@ public class PaymentController {
     //Delete payment and add it into paidlist; only possible for person with ADMIN role
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @PreAuthorize("hasAuthority('ADMIN')")
-    public String deletePayment(@PathVariable("id") Long paymentId, Model model, Paid paid) {
-    	model.addAttribute("paid", new Paid());
-    	prrepository.save(paid);
+    public String deletePayment(@PathVariable("id") Long paymentId, Model model ) {
     	prepository.deleteById(paymentId);
         return "redirect:../paymentlist";
-    }
+    } 
     
     //Edit payment; only possible for person with ADMIN role    
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
@@ -92,13 +85,6 @@ public class PaymentController {
     	model.addAttribute("types", trepository.findAll());
         return "editpayment";
     }  
-  
-    //Show all made payments
-    @RequestMapping(value= {"/paidlist"})
-    public String paidList(Model model) {	
-        model.addAttribute("paids", prrepository.findAll());
-        return "paidlist";
-    }
         
     //Add new person; only possible for person with ADMIN role  
     @RequestMapping(value = "/addperson")

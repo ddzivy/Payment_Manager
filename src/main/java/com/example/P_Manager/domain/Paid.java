@@ -19,15 +19,15 @@ public class Paid {
 	private String date;
 	
 	// type is from entity Type and is one of the paid attribute, it is joined here
-	@ManyToOne
-	@JoinColumn(name = "typeid")
-	private Type type;
+	//@ManyToOne
+	//@JoinColumn(name = "typeid") 
+	private String type;
 	
 	// Creating empty Paid object
 	public Paid() {}
     
 	// Creating Paid object with attributes
-	public Paid(String name, String IBAN, String amount, String date, Type type) {
+	public Paid(String name, String IBAN, String amount, String date, String type) {
 		super();
 		this.name = name;
 		this.IBAN = IBAN;
@@ -68,19 +68,19 @@ public class Paid {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public Type getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(Type type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	
 	// Overriding method toString()
 	@Override
 	public String toString() {
-		if (this.type != null)
-			return "Paid [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + " type =" + this.getType() + "]";		
-		else
-			return "Paid [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + "]";
+		//if (this.type != null)
+		return "Paid [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + " type =" + type + "]";		
+	//	else
+	//		return "Paid [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + "]";
 	}
 }
