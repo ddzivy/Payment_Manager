@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" class="table table-striped">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<head>
+    <title>AddPayment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add Payment</h1>
+	<div>
+		<form th:object="${payment}" th:action="@{save}" action="#" method="post">
+		  	<label for="name">Name: </label>
+			<input type="text" id="name" th:field="*{name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="IBAN">IBAN: </label>
+			<input type="text" th:field="*{IBAN}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="amount">Amount: </label>
+			<input type="text" th:field="*{amount}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="date">Date (YYYY-MM-DD): </label>
+			<input type="text" th:field="*{date}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="typelist">Type: </label>
+			 <select id="typelist" th:field="*{type}" class="form-control">
+       			<option th:each="type: ${types}" th:value="${type.typeid}" th:text="${type.name}"></option>
+    		</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save" class="btn btn-success"></input>
+		</form>
+	</div>
+</body>
+</html>

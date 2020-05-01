@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<head>
+    <title>PaidList</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+	<div class="col-md-4">
+		<h1>Payments made</h1>
+	</div>
+    <table class="table table-striped">
+		<tr>
+		    <th>Name</th>
+		    <th>IBAN</th>
+		    <th>Amount</th>
+		    <th>Date</th> 
+		    <th>Type</th>     
+		</tr>  
+    	<tr th:each = "paid : ${paids}">
+    		<td th:text="${paid.name}"></td>
+    		<td th:text="${paid.IBAN}"></td>
+    		<td th:text="${paid.amount}"></td>
+    		<td th:text="${paid.date}"></td>
+    		<td th:text="${paid.type.name}"></td> 	 			     		
+    	</tr>
+     </table>
+	 <a href="/paymentlist" class="btn btn-primary">Back</a>
+	 
+</div>	     	
+</body> 
+</html>
