@@ -35,7 +35,7 @@
     		<td th:text="${payment.amount}"></td>
     		<td th:text="${payment.date}"></td>
     		<td th:text="${payment.type.name}"></td>
-    		<td th:text="${payment.check}"></td>
+    		<td th:text="${payment.paid}"></td>
     			<td><a th:href="@{/edit/{id}(id=${payment.id})}"  class="btn btn-primary">Edit</a></td> 			
  				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${payment.id})}" class="btn btn-xs btn-danger">Delete</a></td>    		
     	</tr>

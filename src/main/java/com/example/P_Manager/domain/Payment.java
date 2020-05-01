@@ -23,20 +23,20 @@ public class Payment {
 	@JoinColumn(name = "typeid")
 	private Type type;
 	
-	private String check;
+	private String paid;
 	
 	// Creating empty Payment object
 	public Payment() {}
     
 	// Creating Payment object with attributes
-	public Payment(String name, String IBAN, String amount, String date, Type type, String check) {
+	public Payment(String name, String IBAN, String amount, String date, Type type, String paid) {
 		super();
 		this.name = name;
 		this.IBAN = IBAN;
 		this.amount = amount;
 		this.date = date;
 		this.type = type;
-		this.check = check;
+		this.paid = paid;
 	}
 
 // Getters and setters for all attributes
@@ -77,19 +77,19 @@ public class Payment {
 	public void setType(Type type) {
 		this.type = type;
 	}
-	public String getCheck() {
-		return check;
+	public String getPaid() {
+		return paid;
 	}
-	public void setCheck(String check) {
-		this.check = check;
+	public void setPaid(String paid) {
+		this.paid = paid;
 	}
 	
 	// Overriding method toString()
 	@Override
 	public String toString() {
 		if (this.type != null)
-			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + " type =" + this.getType() + ", check=" + check + "]";		
+			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + " type =" + this.getType() + ", paid=" + paid + "]";		
 		else
-			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + ", check=" + check + "]";
+			return "Payment [id=" + id + ", name=" + name + ", IBAN=" + IBAN + ", amount=" + amount + ",date=" + date + ", paid=" + paid + "]";
 	}
 }
