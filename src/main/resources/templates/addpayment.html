@@ -24,11 +24,11 @@
 			<label for="typelist">Type: </label>
 			 <select id="typelist" th:field="*{type}" class="form-control">
        			<option th:each="type: ${types}" th:value="${type.typeid}" th:text="${type.name}"></option>
-    		</select>
+    		 </select>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="paid">Paid: </label>
-			<input type="text" th:field="*{paid}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
+        	<input type="radio" th:field="*{paid}" value="No" />No
+        	<div style="clear: both; display: block; height: 10px;"></div>	
 			<input type="submit" value="Save" class="btn btn-success"></input>
 		</form>
 	</div>

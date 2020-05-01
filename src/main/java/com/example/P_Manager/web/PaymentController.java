@@ -79,7 +79,6 @@ public class PaymentController {
     
     //Edit payment; only possible for person with ADMIN role    
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    @PreAuthorize("hasAuthority('ADMIN')")
     public String editPayment(@PathVariable("id") Long paymentId, Model model) {
     	model.addAttribute("edit", prepository.findById(paymentId));
     	model.addAttribute("types", trepository.findAll());
