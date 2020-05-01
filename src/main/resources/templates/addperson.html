@@ -9,7 +9,7 @@
 	<h1>Add Person</h1>
 	<h3>Pay attention on written data. Values can not be changed later!</h3>
 	<div>
-		<form th:object="${person}" th:action="@{save}" action="#" method="post">
+		<form th:object="${person}" th:action="@{saveperson}" action="#" method="post">
 		  	<label for="username">Username: </label>
 			<input type="text" id="username" th:field="*{username}" />
 			<div style="clear: both; display: block; height: 10px;"></div>

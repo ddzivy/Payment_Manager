@@ -68,7 +68,7 @@ public class PaymentController {
     }     
     
     //Save new payment
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/savepayment", method = RequestMethod.POST)
     public String save(Payment payment){
         prepository.save(payment);
         return "redirect:paymentlist";
@@ -77,8 +77,9 @@ public class PaymentController {
     //Delete payment and add it into paidlist; only possible for person with ADMIN role
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @PreAuthorize("hasAuthority('ADMIN')")
-    public String deletePayment(@PathVariable("id") Long paymentId, Model model) {
-    	model.addAttribute("paid", prrepository.save(new Paid()));
+    public String deletePayment(@PathVariable("id") Long paymentId, Model model, Paid paid) {
+    	model.addAttribute("paid", new Paid());
+    	prrepository.save(paid);
     	prepository.deleteById(paymentId);
         return "redirect:../paymentlist";
     }
@@ -108,7 +109,7 @@ public class PaymentController {
     }     
     
     //Save new person
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveperson", method = RequestMethod.POST)
     public String save(Person person){
         urepository.save(person);
         return "redirect:paymentlist";
@@ -123,7 +124,7 @@ public class PaymentController {
     }     
     
     //Save new type
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/savetype", method = RequestMethod.POST)
     public String save(Type type){
         trepository.save(type);
         return "redirect:paymentlist";
